@@ -248,4 +248,22 @@ public class HashRedis implements JedisInterface{
             jedisPools[i].close();
         }
     }
+
+
+	/**   
+	 * <p>Title: getByte</p>   
+	 * <p>Description: </p>   
+	 * @param key
+	 * @return   
+	 * @see com.troila.redis.JedisInterface#getByte(byte[])   
+	 */
+	@Override
+	public byte[] getByte(final byte[] key) {
+		 return execute(new String(key), new HashRedisExecutor<byte[]>() {
+	            @Override
+	            public byte[] execute(Jedis jedis) {
+	                return jedis.get(key);
+	            }
+	       });
+	}
 }

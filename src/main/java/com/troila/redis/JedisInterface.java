@@ -13,6 +13,8 @@ public interface JedisInterface {
     public String set(String key, String value, String nxxx, String expx, long time);
 
     public String get(String key);
+    
+    public byte[] getByte(byte[] key);
 
     public Boolean exists(String key);
 
